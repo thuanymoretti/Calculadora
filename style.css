@@ -22,11 +22,7 @@ body{
     padding: 5px;
     background-color: azure;
 }
-.botoes{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 5px;
-}
+
 button{
     padding: 10px;
     font-size: 20px;
@@ -36,4 +32,10 @@ button{
 }
 .operador{
     background-color: palevioletred;
+}
+
+.botoes {
+    display: grid;
+    grid-template-columns: repeat(4, 60px);
+    gap: 10px;
 }
