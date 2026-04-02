@@ -1,45 +1,41 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" readonly>
-    
-    <title>Calculadora</title>
+      <link rel="stylesheet" href="style.css">
+    <title>Calculadora Simples</title>
 </head>
+
 <body>
-    <div class="calculadora">
-        <input type="text" id="visor">
 
-     <div class="botoes">
-    <button onclick="Apagar()">A</button>
-    <button onclick="Limpar()">C</button>
-    <button onclick="Adicionar('%')">%</button>
-    <button class="operador" onclick="Adicionar('/')">/</button>
+    <main>
+        <h1>Calculadora Simples</h1>
 
-    <button onclick="Adicionar('7')">7</button>
-    <button onclick="Adicionar('8')">8</button>
-    <button onclick="Adicionar('9')">9</button>
-    <button class="operador" onclick="Adicionar('*')">*</button>
+        <div class="form-group">
+            <label for="n1">Primeiro Número</label>
+            <input type="text" id="n1" placeholder="Digite um número:" autocomplete="off">
+        </div>
 
-    
-    <button onclick="Adicionar('4')">4</button>
-    <button onclick="Adicionar('5')">5</button>
-    <button onclick="Adicionar('6')">6</button>
-    <button class="operador" onclick="Adicionar('-')">-</button>
+        <div class="form-group">
+            <label for="n2">Primeiro Número</label>
+            <input type="text" id="n2" placeholder="Digite um número:" autocomplete="off">
+        </div>
 
+        <div class="botoes">
+            <button onclick="somar()">Soma (+)</button>
+            <button onclick="subtrair()">Subtração (-)</button>
+            <button onclick="multiplicar()">Multiplicação (x)</button>
+            <button onclick="dividir()">Divisão (/)</button>
+        </div>
 
-    <button onclick="Adicionar('1')">1</button>
-    <button onclick="Adicionar('2')">2</button>
-    <button onclick="Adicionar('3')">3</button>
-    <button class="operador" onclick="Adicionar('+')">+</button>
+        <div class="resultado">
+            <p>Resultado: <span id="resultado">0</span></p>
+        </div>
+    </main>
 
- 
-    <button onclick="Adicionar('0')">0</button>
-    <button onclick="Adicionar('.')">.</button>
-    <button class="operador" onclick="Calcular()" style="grid-column: span 2;">=</button>
-</div>
-    </div>
+    <script src="calcu.js"></script>
 
-    <script src="script.js"></script>
 </body>
+
 </html>

@@ -1,60 +1,80 @@
 function obterValores() {
-    let primeiroNumero = document.getElementById("primeiroNumero").value;
-    let segundoNumero = document.getElementById("segundoNumero").value;
-    if(primeiroNumero == "" || segundoNumero == "") {
-        mostrarResultado("Preencha todos os campos!");
+
+    let valor1 = document.getElementById("n1").value;
+    let valor2 = document.getElementById("n2").value;
+
+    if (valor1 === "" || valor2 === "") {
+        alert("Por favor, preencha os dois campos com números!");
         return null;
     }
 
-    primeiroNumero = parseFloat(primeiroNumero);
-    segundoNumero = parseFloat(segundoNumero);
-    if(isNaN(primeiroNumero) || isNaN(segundoNumero)) {
-        mostrarResultado("Digite apenas números válidos!");
+    let n1 = parseFloat(valor1);
+    let n2 = parseFloat(valor2);
+
+    if (isNaN(n1) || isNaN(n2)) {
+        alert("Por favor, insira apenas números válidos!");
         return null;
     }
 
-    return { primeiroNumero, segundoNumero };
+    return { n1, n2 };
 }
-function gerenciamentoDeCalculo(calculo) {
-    let resultadoOperacao = 0;
-    const valores = obterValores();
-    if(!valores) return;
 
-    switch(calculo) {
-        case 'somar':
-            resultadoOperacao = somar(valores);
-            break;
-        case 'subtrair':
-            resultadoOperacao = subtrair(valores);
-            break;
-        case 'multiplicar':
-            resultadoOperacao = multiplicar(valores);
-            break;
-        case 'dividir':
-            if(valores.segundoNumero == 0) {
-                mostrarResultado("Não é possível dividir por zero!");
-                return;
-            }
-            resultadoOperacao = dividir(valores);
-            break;
-        default: 
-            mostrarResultado("Não foi possivel realizar o calculo.");
-            return;
+function exibirResultado(resultado) {
+    let elementoResultado = document.getElementById("resultado");
+
+    if (Number.isInteger(resultado)) {
+        elementoResultado.textContent = resultado;
+    } else {
+       
+        elementoResultado.textContent = resultado.toFixed(2);
     }
-    mostrarResultado("Resultado: " + resultadoOperacao);
 }
-function somar(valores) {
-    return valores.primeiroNumero + valores.segundoNumero;
+
+function somar() {
+
+    let valores = obterValores();
+    if (valores === null) {
+        return;
+    }
+
+    let resultado = valores.n1 + valores.n2;
+    exibirResultado(resultado);
 }
-function subtrair(valores) {
-    return valores.primeiroNumero - valores.segundoNumero;
+
+function subtrair() {
+
+    let valores = obterValores();
+    if (valores === null) {
+        return;
+    }
+
+    let resultado = valores.n1 - valores.n2;
+    exibirResultado(resultado);
 }
-function multiplicar(valores) {
-    return valores.primeiroNumero * valores.segundoNumero;
+
+function multiplicar() {
+
+    let valores = obterValores();
+    if (valores === null) {
+        return;
+    }
+
+    let resultado = valores.n1 * valores.n2;
+    exibirResultado(resultado);
 }
-function dividir(valores) {
-    return valores.primeiroNumero / valores.segundoNumero;
-}
-function mostrarResultado(mensagem) {
-    document.getElementById("resultado").innerText = mensagem;
+
+function dividir() {
+
+    let valores = obterValores();
+    if (valores === null) {
+        return;
+    }
+
+    if (valores.n2 === 0) {
+        alert("Não é possível dividir por zero!");
+        return;
+    }
+
+    let resultado = valores.n1 / valores.n2;
+    exibirResultado(resultado);
 }
