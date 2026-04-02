@@ -6,7 +6,18 @@ body{
     height: 100vh;
     margin: 0;
     background-color: rgb(37, 37, 37);
+    flex-direction: column;
 }
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
 .calculadora{
     background-color: rgb(20, 20, 20);
     border-radius: 5px;
