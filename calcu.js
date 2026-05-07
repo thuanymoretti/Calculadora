@@ -25,7 +25,7 @@ function exibirResultado(resultado) {
     if (Number.isInteger(resultado)) {
         elementoResultado.textContent = resultado;
     } else {
-
+        // Arredondar para 2 casas decimais
         elementoResultado.textContent = resultado.toFixed(2);
     }
 }
